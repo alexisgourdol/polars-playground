@@ -1,0 +1,33 @@
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+    "name": "Python 3",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            // Options arm64 or amd64
+            "PLATFORM": "arm64"
+        }
+    },
+    "postCreateCommand": "poetry config virtualenvs.create false && poetry install",
+    "remoteUser": "root",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "GitHub.copilot",
+                "GitHub.copilot-chat",
+                "ms-python.python",
+                "charliermarsh.ruff"
+            ]
+        },
+        "settings": {
+            "python.testing.pytestArgs": [
+                "."
+            ],
+            "python.testing.unittestEnabled": false,
+            "python.testing.pytestEnabled": true,
+            "python.formatting.provider": "charliermarsh.ruff",
+            "python.linting.mypyEnabled": true,
+            "python.linting.enabled": true
+        }
+    }
+}
