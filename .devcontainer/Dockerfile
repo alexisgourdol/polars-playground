@@ -1,4 +1,4 @@
 ARG PLATFORM=amd64
-FROM --platform=linux/${PLATFORM} python:3.11
+FROM --platform=linux/${PLATFORM} python:3.12
 
-RUN pip install poetry --no-cache-dir
+RUN pip install uv --no-cache-dir

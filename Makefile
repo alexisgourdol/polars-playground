@@ -5,7 +5,7 @@ export
 
 ## Development
 install:
-	poetry install
+	uv sync
 
 format:
 	ruff format .

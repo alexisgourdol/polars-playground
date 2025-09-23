@@ -10,7 +10,7 @@ Credits to :
 - Mehdi Ouazza <mehdi@mehd.io> for the original repo https://github.com/mehd-io/pypi-duck-flow/
     - changes : removed project specifig configs and files
 - Jeroen Overschie (@dunnkers)  https://github.com/godatadriven/python-devcontainer-template
-    - changes : updated .gitignore and removed requirements.txt set up in Dockerfile in favour of Poetry in the devcontainer.json > `postCreateCommand`
+    - changes : updated .gitignore and removed requirements.txt set up in Dockerfile in favour of uv in the devcontainer.json > `postCreateCommand`
     - TO DO : improve Dockerfile to run as non-root user (1st attempt failed to build container due to permission errors, so rolled back)
     - TO DO : set up portsAttributes and forwardPorts to add Streamlit as the go to data viz lib
     - TO DO : set up the CI/CD on github

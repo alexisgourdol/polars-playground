@@ -68,6 +68,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.python-version
 
 # mypy
 .mypy_cache/
