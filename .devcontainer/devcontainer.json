@@ -13,8 +13,8 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "GitHub.copilot",
-                "GitHub.copilot-chat",
+                //"GitHub.copilot",
+                //"GitHub.copilot-chat",
                 "ms-python.python",
                 "charliermarsh.ruff"
             ]
