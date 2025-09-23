@@ -14,6 +14,8 @@ Credits to :
     - TO DO : improve Dockerfile to run as non-root user (1st attempt failed to build container due to permission errors, so rolled back)
     - TO DO : set up portsAttributes and forwardPorts to add Streamlit as the go to data viz lib
     - TO DO : set up the CI/CD on github
+    - TO DO : create variables for Python version, Duckdb version etc...
+    - TO DO : create a package generator for new projects
 
 
 ## Features
