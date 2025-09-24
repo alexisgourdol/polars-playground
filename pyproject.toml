@@ -1,11 +1,12 @@
 [project]
-name = "data-devcontainer"
+name = "polars-playground"
 version = "0.1.0"
 description = "A Basic Template Dev Container for Data Analysis and Data Pipeline Project in Python with Duck DB"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "notebook>=7.4.5",
+    "ipykernel>=6.30.1",
+    "pip>=25.2",
     "polars>=1.33.1",
-    "pytest>=8.4.2",
+    "ruff>=0.13.1",
 ]

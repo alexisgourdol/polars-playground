@@ -1,5 +1,5 @@
-include .env
-export
+#include .env
+#export
 
 .PHONY : install format test
 
@@ -8,4 +8,4 @@ install:
 	uv sync
 
 format:
-	ruff format .
+	uv run ruff format .
