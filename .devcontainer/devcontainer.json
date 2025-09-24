@@ -13,21 +13,12 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                //"GitHub.copilot",
-                //"GitHub.copilot-chat",
                 "ms-python.python",
                 "charliermarsh.ruff"
             ]
         },
         "settings": {
-            "python.testing.pytestArgs": [
-                "."
-            ],
-            "python.testing.unittestEnabled": false,
-            "python.testing.pytestEnabled": true,
             "python.formatting.provider": "charliermarsh.ruff",
-            "python.linting.mypyEnabled": true,
-            "python.linting.enabled": true
         }
     }
 }
