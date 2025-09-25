@@ -10,7 +10,7 @@ Goal : get familiar with polars, docs and features
 ## Features
 - uses .devcontainers and runs notebook within VS Code (for standalone use of jupyterlab or jupyter notebooks, see uv integration considerations https://docs.astral.sh/uv/guides/integration/jupyter/)
 - dependencies
-    - polars
+    - polars, pyarrow (to use some functions of polars such as to_arrow, to_pandas ...)
     - ipykernel , pip to use notebooks within VS Code
     - ruff to format the code
 
