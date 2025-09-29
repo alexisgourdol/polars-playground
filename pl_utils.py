@@ -1,4 +1,6 @@
 import polars as pl
+import numpy as np
+import sys
 from typing import Optional
 
 
@@ -31,6 +33,10 @@ def pl_info(
     col_width : Optional[int]
         Force column name column width; if None auto-sizes to longest column name.
     """
+    print(f"{sys.version=}")
+    print(f"{pl.__version__=}")
+    print("_" * 23)
+
     n_rows, n_cols = df.shape
     print(f"Polars DataFrame info — shape: ({n_rows}, {n_cols})")
 
@@ -76,3 +82,55 @@ def pl_info(
         dtype_counts[s] = dtype_counts.get(s, 0) + 1
     for dt_name, cnt in dtype_counts.items():
         print(f"  {dt_name}: {cnt}")
+
+
+def dtype_info():
+    data_types = [
+        np.int8,
+        np.int16,
+        np.int32,
+        np.int64,
+        np.uint8,
+        np.uint16,
+        np.uint32,
+        np.uint64,
+    ]
+
+    dt_dict = {}
+    dt_dict["dtype_str"], dt_dict["min"], dt_dict["max"] = [], [], []
+
+    for dt in data_types:
+        dt_dict["dtype_str"].append(str(dt))
+        dt_dict["min"].append(np.iinfo(dt).min)
+        dt_dict["max"].append(np.iinfo(dt).max)
+
+    dt_dict
+    """{'dtype_str': ["<class 'numpy.int8'>", "<class 'numpy.int16'>", "<class 'numpy.int32'>", "<class 'numpy.int64'>", "<class 'numpy.uint8'>",
+                    "<class 'numpy.uint16'>", "<class 'numpy.uint32'>", "<class 'numpy.uint64'>"],
+        'min': [-128, -32768, -2147483648, -9223372036854775808, 0, 0, 0, 0],
+        'max': [127,  32767,  2147483647,  9223372036854775807,  255,  65535,  4294967295,  18446744073709551615]}
+    """
+
+    with pl.Config(
+        tbl_formatting="MARKDOWN",
+        tbl_hide_column_data_types=True,
+        tbl_hide_dataframe_shape=True,
+    ):
+        print(
+            pl.DataFrame(dt_dict)
+            .select(
+                pl.col("dtype_str").str.extract(r"numpy\.([^']+)", 1).alias("dtype"),
+                pl.col("min"),
+                pl.col("max"),
+            )
+            .with_columns(
+                [
+                    pl.col("min").map_elements(
+                        lambda x: f"{x:_}", return_dtype=pl.String
+                    ),
+                    pl.col("max").map_elements(
+                        lambda x: f"{x:_}", return_dtype=pl.String
+                    ),
+                ]
+            )
+        )
