@@ -14,11 +14,13 @@
         "vscode": {
             "extensions": [
                 "ms-python.python",
-                "charliermarsh.ruff"
+                "charliermarsh.ruff",
+                "ms-toolsai.datawrangler"
             ]
         },
         "settings": {
             "python.formatting.provider": "charliermarsh.ruff",
+            "jupyter.debugJustMyCode": false
         }
     }
 }
